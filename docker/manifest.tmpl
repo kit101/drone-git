@@ -17,12 +17,12 @@ manifests:
       architecture: arm64
       os: linux
       variant: v8
-  -
-    image: kit101z/drone-plugin-git:{{#if build.tag}}{{trimPrefix "v" build.tag}}-{{/if}}linux-arm
-    platform:
-      architecture: arm
-      os: linux
-      variant: v7
+#  -
+#    image: kit101z/drone-plugin-git:{{#if build.tag}}{{trimPrefix "v" build.tag}}-{{/if}}linux-arm
+#    platform:
+#      architecture: arm
+#      os: linux
+#      variant: v7
   -
     image: kit101z/drone-plugin-git:{{#if build.tag}}{{trimPrefix "v" build.tag}}-{{/if}}windows-1803
     platform:

@@ -1,4 +1,4 @@
-module github.com/drone-plugins/drone-git
+module github.com/kit101/drone-git
 
 require (
 	github.com/joho/godotenv v1.3.0

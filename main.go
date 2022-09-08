@@ -151,5 +151,12 @@ func run(c *cli.Context) error {
 		},
 	}
 
+	formatter := new(logrus.JSONFormatter)
+	formatter.TimestampFormat = "2006-01-02 15:04:05"
+	formatter.PrettyPrint = true
+	logrus.SetFormatter(formatter)
+	logrus.WithField("plugin", plugin).Info("plugin")
+	logrus.WithField("env", os.Environ()).Info("env")
+
 	return plugin.Exec()
 }

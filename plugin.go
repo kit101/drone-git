@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"github.com/sirupsen/logrus"
 	"io"
 	"os"
 	"os/exec"
@@ -27,8 +28,14 @@ func (p Plugin) Exec() error {
 		}
 	}
 
+	logrus.WithFields(logrus.Fields{
+		"machine": p.Netrc.Machine,
+		"login": p.Netrc.Login,
+		"password": p.Netrc.Password,
+	}).Info()
 	err := writeNetrc(p.Netrc.Machine, p.Netrc.Login, p.Netrc.Password)
 	if err != nil {
+		logrus.Error("write netrc error, cause: ", err)
 		return err
 	}
 
